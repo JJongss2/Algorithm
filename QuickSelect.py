@@ -10,8 +10,11 @@ def quick_selection(arr, k):
     elif arr[i] > pivot:      # pivot값보다 크면
       C.append(arr[i])        # C리스트에 추가      
     else: B.append(arr[i])
+      
+  if (k == len(A)) and(k == 1): return A[k-1] # 에러 발생으로 인한 코드 추가
   
-  if k < len(A):                  # k번째 작은 값이 A리스트의 원소 갯수보다 적으면
+  
+  if k <= len(A):                  # k번째 작은 값이 A리스트의 원소 갯수보다 적으면
     return quick_selection(A, k)  # A리스트에 k번쨰로 작은 값이 존재하므로 재귀
   elif k > len(A) + len(B):
     return quick_selection(C, k - len(A) - len(B))
