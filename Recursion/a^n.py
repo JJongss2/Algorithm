@@ -16,7 +16,8 @@ def power(a,n):             # a^(n-1) * a
   return power(a,n-1) * a
 
 
-# 선형재귀 n/2개씩 쪼갬  / T(n) = T(n/2) + C = C * log n = O(log n)
+# 선형재귀 n/2개씩 쪼갬  / T(n) = T(n/2) + C = T(n/2^k) + C*k = C + C * log n = O(log n)
+# n = 2^k , log n = k
 def power(a,n):        
   if n == 0: return 1
   elf n == 1 : return a
@@ -26,7 +27,8 @@ def power(a,n):
       return x*x
     else: return x*x*a
 
-# 이중재귀 T(n) = 2*T(n/2) + C = O(n)
+# 이중재귀 T(1) = C, T(n) = 2*T(n/2) + C =2^k * T(n/2^k) + c(1+...+2^(k-1)) = 2^k*C + 2^k*C-1 = 2nC -1 =  O(n)
+# n = 2^k 
 def power(a,n):
   if n==0: return 1
   if n%2==1: return power(a,n//2) * power(a, n//2) * a
