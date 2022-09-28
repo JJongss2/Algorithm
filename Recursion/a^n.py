@@ -26,7 +26,7 @@ def power(a,n):
       return x*x
     else: return x*x*a
 
-# 이중재귀 T(n) = 2*T(n/2) + C
+# 이중재귀 T(n) = 2*T(n/2) + C = O(n)
 def power(a,n):
   if n==0: return 1
   if n%2==1: return power(a,n//2) * power(a, n//2) * a
