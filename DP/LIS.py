@@ -4,8 +4,7 @@ def LIS_DP(seq):
         for j in range(i):
             if seq[i]>seq[j]:
                 dp[i] = max(dp[i], dp[j]+1)
-    print(dp)
-    return dp[-1]
+    return max(dp)
 
 seq = input()
 lis = LIS_DP(seq)
