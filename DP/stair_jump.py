@@ -1,17 +1,34 @@
-# 1, 3 계단만 오를 시
+# 1, 2 계단만 오를 수 있을 떄
 def jump(n):
-    A = [0]*(n+1)
-    A[0] = 1
-    A[1] = 1
-    A[2] = 2
-
+    a = [0]*(n+1)
+    a[1] = 0
+    a[2] = 1
+    a[3] = 2
     if n <= 3:
-        return A[n-1]
+        return a[n]
+    else:
+        for i in range(4, n+1):
+            a[i] = a[i-1] + a[i-2]
+    print(a)
+    return a[n]
+n = int(input())
+print(jump(n))
 
-    for i in range(3, n):
-        A[i] = A[i-1] + A[i-3]
 
-    return A[n-1]
+# 1, 3 계단만 오를 수 있을 떄
+def jump(n):
+    a = [0]*(n+1)
+    a[1] = 0
+    a[2] = 1
+    a[3] = 1
+    a[4] = 2
+    if n <= 4:
+        return a[n]
+    else:
+        for i in range(5, n+1):
+            a[i] = a[i-1] + a[i-3]
 
+    print(a)
+    return a[n]
 n = int(input())
 print(jump(n))
